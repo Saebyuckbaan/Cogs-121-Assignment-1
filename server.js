@@ -1,10 +1,16 @@
 // Node.js Dependencies
-const http     = require("http");
-const path     = require("path");
-var express    = require("express");
-var handlebars = require("express3-handlebars");
-var mongoose   = require("mongoose");
-var app        = express();
+const http           = require("http");
+const path           = require("path");
+var express          = require("express");
+var handlebars       = require("express3-handlebars");
+var mongoose         = require("mongoose");
+var connectmongo     = require("connect-mongo");
+var express_session  = require("express-session");
+var method_override  = require("method-override");
+var passport         = require("passport");
+var passport_twitter = require("passport-twitter");
+var socket           = require("socket.io");
+var app        		 = express();
 
 
 //Router
@@ -15,7 +21,8 @@ var router = {
 
 //Body Parser for req.body
 var parser = {
-    body: require("body-parser")
+    body: require("body-parser"),
+    cookie: require("cookie-parser")
 };
 
  // Database Connection
